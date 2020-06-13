@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block titulo %} Nueva persona {% endblock titulo %}
+{%block body%}
+<h1>Crear o editar</h1>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Crear</button>
+</form>
+
+{% endblock body %}

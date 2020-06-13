@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %} Listado de contacto {% endblock titulo %} </title>
+    
+</head>
+<body>
+    {% block body %}
+    <h1>Template de listado</h1>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>OPCION</th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for persona in personas %}
+        <tr>
+            <td >{{persona.nombre}}</td>
+            <td>{{persona.apellido}}</td>
+            <td>{{persona.correo}}</td>
+            <td>
+                <a href="{% url 'editarpersona' persona.id %}">EDITAR</a>
+                <a href="{% url 'eliminarpersona' persona.id %}">ELIMINAR</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+    </table>
+    <br>
+    <button ><a href="{% url 'nuevapersona' %}"> Nueva Persona</a></button>
+    {% endblock body%}
+</body>
+</html>
