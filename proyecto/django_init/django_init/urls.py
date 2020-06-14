@@ -16,8 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from aplicaciones.principal.views import inicio,crear_persona,editar_persona,eliminarPersona
-from django.config.urls.static import static
-from django.config import settings
 
 
 urlpatterns = [
@@ -26,4 +24,4 @@ urlpatterns = [
     path('nuevapersona/', crear_persona, name='nuevapersona'),
     path('editarpersona/<int:id>/', editar_persona, name='editarpersona'),
     path('eliminarpersona/<int:id>/',eliminarPersona, name='eliminarpersona')
-] +static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
+]
